@@ -1,0 +1,15 @@
+from pytube import YouTube
+
+# URL of the YouTube video
+video_url = 'https://www.youtube.com/watch?v=YOUR_VIDEO_ID'  # Replace with actual URL
+
+# Create a YouTube object
+yt = YouTube(video_url)
+
+# Choose the highest resolution stream
+video_stream = yt.streams.get_highest_resolution()
+
+# Download the video to current directory
+print(f"Downloading: {yt.title}")
+video_stream.download(output_path='downloads')  # Save to 'downloads/' folder
+print("Download completed!")

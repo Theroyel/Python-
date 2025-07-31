@@ -1,0 +1,20 @@
+from PIL import Image
+
+# Load image
+image_path =r"C:\Users\chad\Desktop\veeru paswan\MAIN PYTHON\MAIN INPUT\tree image.jpg"  # Replace with your image path
+image = Image.open(image_path)
+
+# Convert to RGB if not already
+image = image.convert("RGB")
+
+# Get width and height
+width, height = image.size
+
+# Open a text file to write RGB values
+with open("pixel_rgb_values.txt", "w") as file:
+    for y in range(height):
+        for x in range(width):
+            r, g, b = image.getpixel((x, y))
+            file.write(f"({x}, {y}): R={r}, G={g}, B={b}\n")
+            
+print(r"RGB values saved to 'C:\Users\chad\Desktop\veeru paswan\MAIN PYTHON\MAIN OUTPUT\tree image rgb code'")
